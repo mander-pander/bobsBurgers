@@ -12,8 +12,11 @@ app.use(express.json());
 
 const {
     createUser,
-    loginUser
-
+    loginUser,
+    saveChar,
+    saveBurger,
+    displayFaveChar,
+    displayFaveBurger
 } = require('./controller');
 
 
@@ -22,6 +25,10 @@ const {
 // })
 
 app.post('/user', createUser);
-app.get('/login', loginUser);
+app.post('/login', loginUser);
+app.post('/charCollection', saveChar);
+app.post('/burgerCollection', saveBurger);
+app.get('/faveCharacters', displayFaveChar);
+app.get('/faveBurgers', displayFaveBurger);
 
 app.listen(SERVER_PORT, () => console.log(`Up on ${SERVER_PORT}`));

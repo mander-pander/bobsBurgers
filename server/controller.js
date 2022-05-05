@@ -20,22 +20,83 @@ module.exports = {
             (username, password)
             VALUES ('${username}', '${password}');
         `)
-        .then(() => {
-            res.sendStatus(200);
+        .then((dbRes) => {
+            res.send(dbRes);
         }).catch(err => console.log(err));
     },
 
     loginUser: (req, res) => {
-        let {username, password} = req.body;
+        const {username, password} = req.body;
+        // console.log(req.body);
+        sequelize.query(`
+            SELECT user_id, username, password
+            FROM users
+            WHERE username = '${username}'
+            AND password = '${password}';
+        `)
+        .then((dbRes)=> {
+            res.send(dbRes[0]);
+        })
+        .catch(err => console.log(err));
+    },
+
+    saveChar: (req, res) => {
+        let {name, img, occupation, user_id} = req.body;
+        console.log(req.body);
+        sequelize.query(`
+            INSERT INTO favChars
+            (name, img, occupation, user_id)
+            VALUES ('${name}', '${img}', '${occupation}', '${user_id}');
+        `)
+        .then((dbRes) => {
+            res.send(dbRes[0])
+        })
+        .catch(err => console.log(err));
+    },
+
+    saveBurger: (req, res) => {
+        let {name, price, user_id} = req.body;
+        sequelize.query(`
+            INSERT INTO favBurgers
+            (name, price, user_id)
+            VALUES ('${name}', '${price}', '${user_id}');
+        `)
+        .then((dbRes) => {
+            res.send(dbRes[0])
+        })
+        .catch(err => console.log(err));
+    },
+
+    displayFaveChar: (req, res) => {
+        let {user_id} = req.query;
+        // console.log('req params', req.params)
+        // console.log(req.query)
+        // console.log('this is req', req)
+        // console.log('this is req.query', req.query)
 
         sequelize.query(`
-            SELECT FROM users
-            WHERE username = ${username}
-            AND password = ${password};
+            SELECT name, img, occupation
+            FROM favChars
+            WHERE user_id = '${user_id}';
+
         `)
-        .then(()=> {
-            res.sendStatus(200);
-        }).catch(err => console.log(err));
+        .then((dbRes) => {
+            res.send(dbRes[0])
+        })
+        .catch(err => console.log(err));
+    },
+
+    displayFaveBurger: (req, res) => {
+        let {user_id} = req.query;
+
+        sequelize.query(`
+            SELECT name, price, user_id
+            FROM favBurgers
+            WHERE user_id = '${user_id}';
+        `)
+        .then((dbRes) => {
+            res.send(dbRes[0]);
+        })
     },
 
     seed: (req, res) => {
