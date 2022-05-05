@@ -11,9 +11,9 @@ const displayFavorites = () => {
         }
     })
     .then((res) => {
-        console.log(res.data)
+        // console.log(res.data)
 
-        for(let i = 0; i < 5; i++) {
+        for(let i = 0; i <res.data.length; i++) {
 
             let charCard = document.createElement('div');
             let charName = document.createElement('h4');
@@ -26,6 +26,9 @@ const displayFavorites = () => {
             charCard.appendChild(charImg);
             charCard.appendChild(charOcc);
 
+            // debugger;
+
+            console.log('cowman', res.data);
             charName.innerHTML = res.data[i].name;
             charImg.src = res.data[i].img;
             charOcc.innerHTML = res.data[i].occupation;
@@ -55,6 +58,7 @@ const displayRandomCharacter = () => {
         charCard.appendChild(charName);
         charCard.appendChild(charImg);
         charCard.appendChild(charOcc);
+
         favoritesBtn.innerHTML = 'Add to Favorites';
         favoritesBtn.dataset.charName = randomChar.name;
         favoritesBtn.dataset.charImg = randomChar.image;
@@ -123,7 +127,7 @@ const saveChar = (e) => {
 
     // console.log(userID)
     let {charName, charImg, charOcc} = e.currentTarget.dataset;
-    // console.log(e.currentTarget.dataset.charName);
+    // console.log('dataset', e.currentTarget.dataset.charName);
     // debugger;
     let body = {
         name: `${charName}`,

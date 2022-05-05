@@ -13,7 +13,9 @@ function createUser(e) {
 
     axios.post('http://localhost:5050/user', body)
         .then(() => {
-            window.location.href = '../Burger/index.html'
+            window.localStorage.setItem('userId', user_id);
+            window.localStorage.setItem('isLoggedIn', true);
+            window.location.href = '../Burger/burger.html'
         })
 }
 

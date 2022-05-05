@@ -17,7 +17,7 @@ function loginUser (e) {
         if (usernameInput.value === username && passwordInput.value === password) {
             // window.localStorage.setItem('username', `${username}`);
             window.localStorage.setItem('userId', user_id);
-            window.localStorage.setItem('isLoggedIn', true)
+            window.localStorage.setItem('isLoggedIn', true);
             window.location.href = '../Burger/burger.html'
         }
     })
