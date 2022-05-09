@@ -1,0 +1,69 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    /* background-image: url('https://media.gq.com/photos/5da091bd9a6db20008f5f0fd/master/w_1600%2Cc_limit/01-H-Jon-Benjamin-Archer-Bobs-Burgers-GQ-October-101119.jpg'); */
+    /* background-image: url('https://www.pluggedin.com/wp-content/uploads/2020/01/bobs-burgers-review-image-1024x587.jpg'); */
+    background-size:contain;
+    background-repeat: no-repeat;
+    /* background-image: url('https://www.pluggedin.com/wp-content/uploads/2020/01/bobs-burgers-review-image-1024x587.jpg'); */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10%;
+    padding: 10px;
+}
+
+#password {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #FDF152;
+}
+
+a {
+    color: #3068B3;
+    margin-left: 7px;
+}
+
+.userEntry {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ACEB5A;
+    height: 25vh;
+    width: 27vw;
+    border: solid black;
+    border-width: 5px 3px 3px 5px;
+    border-radius:95% 4% 97% 5%/4% 94% 3% 95%;
+    margin-top:6%;
+}
+
+header {
+    color: red;
+    border: 15px solid red;
+    background-color: yellow;
+    font-family: 'Signika Negative', sans-serif;
+    width: 40vw;
+    text-align: center;
+    box-shadow: 5px 5px 5px rgb(112, 8, 8);
+}
+
+.officers {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+    align-items: baseline;
+    width: 100vw;
+}
+
+#officer2 > img {
+    transform: rotate3d(1, 150, -4, 178deg);
+}

@@ -5,20 +5,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="login.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@500&display=swap');
+    </style>
     <title>Sign In</title>
 </head>
 <body>
+    <header>
+        <h1>LOGIN FOR ACCESS</h1>
+    </header>
     <!-- <link rel="import" href="../Navbar/navbar.html"> -->
+    <div class="userEntry">
+        <form action="submit" id="loginUser">
+            <input type="text" placeholder="Username" id = "username">
+            <input type="password" placeholder="Password" id="password">
 
-    <form action="submit" id="loginUser">
-        <input type="text" placeholder="Username" id = "username">
-        <input type="password" placeholder="Password" id="password">
+            <button>Login</button>
+        </form>
 
-        <button>Login</button>
-    </form>
+        <a href="../Users/users.html">Don't have an account? Create one here.</a>
 
+    </div>
 
-    <a href="../Users/users.html">Don't have an account? Create one here.</a>
+    <div class="officers">
+        <div id="officer1">
+            <img src="../officerCliffany.webp" alt="">
+        </div>
+        <div id="officer2">
+            <img src="../officerJulia.webp" alt="">
+        </div>
+    </div>
+
+    <footer>
+    </footer>
+
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="login.js"></script>

@@ -4,18 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="users.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="../Login/login.css">
+    <title>Account Creation</title>
 </head>
 <body>
+    <header>
+        <h1>CREATE ACCOUNT</h1>
+    </header>
 
-    <form id="newUser" action="submit">
-        <input type="text" placeholder="Username" id="username">
-        <input type="password" placeholder="Password" id="password">
+    <div class="userEntry">
+        <form id="newUser" action="submit">
+            <input type="text" placeholder="Username" id="username">
+            <input type="password" placeholder="Password" id="password">
 
-        <button>Create Your Account</button>
+            <button>Create Your Account</button>
 
-    </form>
+        </form>
+    </div>
+
+    <div class="officers">
+        <div id="officer1">
+            <img src="../officerCliffany.webp" alt="">
+        </div>
+        <div id="officer2">
+            <img src="../officerJulia.webp" alt="">
+        </div>
+    </div>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="users.js"></script>

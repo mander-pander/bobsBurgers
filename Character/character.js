@@ -1,9 +1,10 @@
-let getCharacterBtn = document.getElementById('getCharacter');
+let getCharacterBtn = document.getElementById('charButton');
 let userID = window.localStorage.getItem('userId');
 
 
 const displayFavorites = () => {
     let favoriteCharacters = document.getElementById('favoriteChar');
+    favoriteCharacters.innerHTML = '';
 
     axios.get('http://localhost:5050/faveCharacters/', {
         params: {
@@ -27,8 +28,6 @@ const displayFavorites = () => {
             charCard.appendChild(charOcc);
 
             // debugger;
-
-            console.log('cowman', res.data);
             charName.innerHTML = res.data[i].name;
             charImg.src = res.data[i].img;
             charOcc.innerHTML = res.data[i].occupation;
@@ -37,8 +36,8 @@ const displayFavorites = () => {
 }
 
 const displayRandomCharacter = () => {
-    let characterChard = document.getElementById('characterCard');
-    characterChard.innerHTML = '';
+    let characterCard = document.getElementById('characterResult');
+    characterCard.innerHTML = '';
 
     axios.get('https://bobsburgers-api.herokuapp.com/characters/')
     .then((res) => {
@@ -52,7 +51,7 @@ const displayRandomCharacter = () => {
         let favoritesBtn = document.createElement('button');
         // document.querySelector(favoritesBtn).addEventListener('click', saveChar);
 
-        characterChard.appendChild(charCard);
+        characterCard.appendChild(charCard);
         charCard.classList.add('charCard');
 
         charCard.appendChild(charName);
@@ -86,6 +85,8 @@ const searchForCharacter = (e) => {
     e.preventDefault();
     let charName= charNameInput.value;
     // console.log(charName)
+    let characterCard = document.getElementById('characterResult');
+    characterCard.innerHTML = '';
 
     axios.get(`https://bobsburgers-api.herokuapp.com/characters?name=${charName}`)
     .then((res) => {
@@ -97,7 +98,7 @@ const searchForCharacter = (e) => {
         let charOcc = document.createElement('p');
         let favoritesBtn = document.createElement('button');
 
-        document.getElementById('characterCard').appendChild(charCard);
+        characterCard.appendChild(charCard);
         charCard.classList.add('charCard');
 
         charCard.appendChild(charName);

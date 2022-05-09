@@ -1,0 +1,122 @@
+body {
+    margin: 0;
+    width: fit-content;
+    min-width: 100%;
+    background-image: url('https://media1.popsugar-assets.com/files/thumbor/s_s7XO8SyyICpHz8CLm0cCbp9wA/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2020/04/08/956/n/1922507/4dadda3b58741b2d_bob_s_burgers/i/Bob-Burgers-Zoom-Background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+main {
+    display: grid;
+    grid-template-areas:
+    "burgerGenerator burgerResult"
+    "faveBurgers faveBurgers";
+    grid-template-columns: 45% 45%;
+    column-gap: 10%;
+    row-gap: 2%;
+    /* background-color: white; */
+    margin-left: 10%;
+    margin-right: 10%;
+    /* border: 10px solid #3068B3; */
+
+}
+
+nav {
+    margin-bottom: 5%;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #FDF152;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: #3068B3;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.getBurgerContainer {
+    grid-area: burgerGenerator;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20%;
+    margin-top: 25%;
+    /* background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTypi8XzX7bIkLcINL_9MHK20pFqyuYOfYGYw&usqp=CAU'); */
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 35vh;
+    width: 18vw;
+    /* box-shadow: -50px -50px 0 -40px #F38400,
+    50px 50px 0 -40px #FDF152; */
+}
+
+#burgerBtn {
+    
+}
+
+#burgerCard {
+    grid-area: burgerResult;
+    border: 10px solid #663300;
+    border-style: groove;
+    margin-right: 15%;
+    margin-top: 5%;
+    display: flex;
+    justify-content: center;
+    background-image: url('https://images.unsplash.com/photo-1614292264554-7dca1d6466d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2hhbGtib2FyZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60');
+    height: 50vh;
+    width: 25vw;
+    font-family: 'Gloria Hallelujah', cursive;
+    color: white;
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0s linear 0s, opacity 300ms;
+}
+
+.burger > button {
+    font-family: 'Gloria Hallelujah', cursive;
+    color: white;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+#faveContainer {
+    grid-area: faveBurgers;
+    text-align: center;
+    font-family: 'Gloria Hallelujah', cursive;
+    color: white;
+    background-image: url('https://images.unsplash.com/photo-1614292264554-7dca1d6466d6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y2hhbGtib2FyZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60');
+    border: 10px solid #663300;
+    border-style: groove;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 10%;
+    margin-top: 5%;
+    min-height: 20vh;
+}
+
+#favoriteBurg {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+}
+
+#favoriteBurg > div {
+    height: 50vh;
+    width: 25vw;
+    font-family: 'Gloria Hallelujah', cursive;
+    color: white;
+}

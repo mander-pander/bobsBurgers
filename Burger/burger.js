@@ -3,6 +3,7 @@ let userID = window.localStorage.getItem('userId');
 
 const displayFavorites = () => {
     let favoriteBurg = document.getElementById('favoriteBurg');
+    favoriteBurg.innerHTML = '';
 
     axios.get('http://localhost:5050/faveBurgers', {
         params: {
@@ -23,8 +24,6 @@ const displayFavorites = () => {
             burger.appendChild(burgerName);
             burger.appendChild(burgerPrice);
 
-            // debugger;
-
             console.log('res.data[i]', res.data[i])
 
             burgerName.innerHTML = res.data[i].name;
@@ -36,6 +35,9 @@ const displayFavorites = () => {
 
 
 const displayRandomBurger = () => {
+
+    let burgerCard = document.getElementById('burgerCard');
+    burgerCard.innerHTML = '';
 
     let session = window.localStorage.getItem('isLoggedIn');
     // console.log(typeof session)
@@ -59,7 +61,7 @@ const displayRandomBurger = () => {
             favoritesBtn.dataset.burgerName = randomBurger.name;
             favoritesBtn.dataset.burgerPrice = randomBurger.price;
 
-            document.getElementById('burgerCard').appendChild(burger);
+            burgerCard.appendChild(burger);
             burger.classList.add('burger');
             console.log(randomBurger)
 

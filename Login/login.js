@@ -12,7 +12,7 @@ function loginUser (e) {
     axios.post('http://localhost:5050/login', body)
     .then(res => {
         const {username, password, user_id} = res.data[0];
-        console.log(res.data[0])
+        console.log(res.data)
 
         if (usernameInput.value === username && passwordInput.value === password) {
             // window.localStorage.setItem('username', `${username}`);
