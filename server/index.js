@@ -16,7 +16,9 @@ const {
     saveChar,
     saveBurger,
     displayFaveChar,
-    displayFaveBurger
+    displayFaveBurger,
+    deleteFaveChar,
+    deleteFaveBurger
 } = require('./controller');
 
 
@@ -30,5 +32,7 @@ app.post('/charCollection', saveChar);
 app.post('/burgerCollection', saveBurger);
 app.get('/faveCharacters', displayFaveChar);
 app.get('/faveBurgers', displayFaveBurger);
+app.delete('/faveCharacters', deleteFaveChar);
+app.delete('/faveBurgers', deleteFaveBurger);
 
 app.listen(SERVER_PORT, () => console.log(`Up on ${SERVER_PORT}`));

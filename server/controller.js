@@ -69,15 +69,12 @@ module.exports = {
 
     displayFaveChar: (req, res) => {
         let {user_id} = req.query;
-        // console.log('req params', req.params)
-        // console.log(req.query)
-        // console.log('this is req', req)
-        // console.log('this is req.query', req.query)
 
         sequelize.query(`
-            SELECT name, img, occupation
+            SELECT name, img, occupation, char_id
             FROM favChars
-            WHERE user_id = '${user_id}';
+            WHERE user_id = '${user_id}'
+            LIMIT 5;
 
         `)
         .then((dbRes) => {
@@ -92,11 +89,40 @@ module.exports = {
         sequelize.query(`
             SELECT name, price, user_id
             FROM favBurgers
-            WHERE user_id = '${user_id}';
+            WHERE user_id = '${user_id}'
+            LIMIT 5;
         `)
         .then((dbRes) => {
             res.send(dbRes[0]);
         })
+    },
+    deleteFaveChar: (req, res) => {
+
+        const {char_id} = JSON.parse(req.query.data);
+        sequelize.query(`
+            DELETE
+            FROM favChars
+            WHERE char_id = '${char_id}';
+        `)
+        .then((dbRes) => {
+            res.send(dbRes[0])
+        })
+        .catch(err => console.log(err))
+
+    },
+
+    deleteFaveBurger: (req, res) => {
+        const {burger_id} = JSON.parse(req.query.data);
+
+        sequelize.query(`
+            DELETE
+            FROM favBurgers
+            WHERE burger_id = '${burger_id}';
+        `)
+        .then((dbRes) => {
+            res.send(dbRes[0])
+        })
+        .catch(err => console.log(err))
     },
 
     seed: (req, res) => {
@@ -127,24 +153,3 @@ module.exports = {
         }).catch(err => console.log('Error seeding DB', err))
     }
 }
-// const BASE_URL = 'https://bobsburgers-api.herokuapp.com';
-
-// module.exports = {
-//     getCharacters: (req, res) => {
-//         (res.status(200).send(`${BASE_URL}/characters`))
-
-//     },
-//     getTest: (req, res) => {
-//         console.log('cowman')
-//         axios
-//         .get(`${BASE_URL}/characters`)
-//         .then(res => {
-//             console.log(`statusCode: ${res.status}`)
-//             console.log(res)
-//         })
-//         .catch(error => {
-//             console.error(error)
-//         });
-//         res.status(200).send('cowwoman')
-//     }
-// }

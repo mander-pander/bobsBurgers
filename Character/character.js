@@ -1,10 +1,16 @@
 let getCharacterBtn = document.getElementById('charButton');
 let userID = window.localStorage.getItem('userId');
-
+let session = window.localStorage.getItem('isLoggedIn');
 
 const displayFavorites = () => {
     let favoriteCharacters = document.getElementById('favoriteChar');
     favoriteCharacters.innerHTML = '';
+
+
+
+    if (session !== 'true') {
+        window.location.href = '../Login/login.html'
+    }
 
     axios.get('http://localhost:5050/faveCharacters/', {
         params: {
@@ -12,32 +18,49 @@ const displayFavorites = () => {
         }
     })
     .then((res) => {
-        // console.log(res.data)
-
         for(let i = 0; i <res.data.length; i++) {
 
             let charCard = document.createElement('div');
             let charName = document.createElement('h4');
             let charImg = document.createElement('img');
             let charOcc = document.createElement('p');
+            let deleteBtn = document.createElement('button')
 
             favoriteCharacters.appendChild(charCard);
 
             charCard.appendChild(charName);
             charCard.appendChild(charImg);
             charCard.appendChild(charOcc);
+            charCard.appendChild(deleteBtn);
 
-            // debugger;
             charName.innerHTML = res.data[i].name;
             charImg.src = res.data[i].img;
             charOcc.innerHTML = res.data[i].occupation;
+
+            deleteBtn.innerHTML = 'X';
+            deleteBtn.dataset.charId = res.data[i].char_id;
+            deleteBtn.addEventListener('click', deleteFaveChar);
+
+
+            //broken
+            // if(res.data[i].occupation === 'undefined') {
+            //     charOcc.innerHTML = '';
+            // } else {
+            //     charOcc.innerHTML = res.data[i].occupation;
+            // }
         }
     })
 }
 
+
 const displayRandomCharacter = () => {
+    let session = window.localStorage.getItem('isLoggedIn');
     let characterCard = document.getElementById('characterResult');
     characterCard.innerHTML = '';
+
+    if (session !== 'true') {
+        window.location.href = '../Login/login.html'
+    }
 
     axios.get('https://bobsburgers-api.herokuapp.com/characters/')
     .then((res) => {
@@ -69,6 +92,13 @@ const displayRandomCharacter = () => {
         charName.innerHTML = randomChar.name;
         charImg.src = randomChar.image;
         charOcc.innerHTML = randomChar.occupation;
+
+        //broken
+        // if(res.data[i].occupation !== undefined) {
+        //     charOcc.innerHTML = res.data[i].occupation;
+        // } else {
+        //     charOcc.innerHTML = '';
+        // }
         })
         .catch(err => console.log(err));
 }
@@ -142,6 +172,21 @@ const saveChar = (e) => {
     .then(() => {
         displayFavorites();
     })
+}
+
+const deleteFaveChar = (e) => {
+    // debugger;
+    let params = {
+        data:{
+            char_id: `${e.currentTarget.dataset.charId}`
+        }
+    };
+
+    axios.delete('http://localhost:5050/faveCharacters/', {params})
+    .then((res) => {
+        displayFavorites();
+    })
+    .catch(err => console.log(err))
 }
 
 displayFavorites();

@@ -1,14 +1,25 @@
 body {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-direction: row;
     justify-content: center;
     margin: 0;
-    /* background-image: url('https://media.gq.com/photos/5da091bd9a6db20008f5f0fd/master/w_1600%2Cc_limit/01-H-Jon-Benjamin-Archer-Bobs-Burgers-GQ-October-101119.jpg'); */
-    /* background-image: url('https://www.pluggedin.com/wp-content/uploads/2020/01/bobs-burgers-review-image-1024x587.jpg'); */
-    background-size:contain;
+    width: fit-content;
+    min-width: 100%;
+    /* min-height: 100%; */
+    background-size: cover;
     background-repeat: no-repeat;
-    /* background-image: url('https://www.pluggedin.com/wp-content/uploads/2020/01/bobs-burgers-review-image-1024x587.jpg'); */
+    background-image: url('https://static3.srcdn.com/wordpress/wp-content/uploads/2020/03/Bobs-Burgers-Next-Door-Puns-2.jpg');
+}
+
+main {
+    /* background-color: white; */
+    /* border: black 2px solid; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15vh;
+    min-height: 80vh;
 }
 
 form {
@@ -49,21 +60,40 @@ a {
 header {
     color: red;
     border: 15px solid red;
+    border-style: groove;
     background-color: yellow;
     font-family: 'Signika Negative', sans-serif;
-    width: 40vw;
+    width: 100%;
+    height: 10vh;
     text-align: center;
-    box-shadow: 5px 5px 5px rgb(112, 8, 8);
+    /* box-shadow: 5px 5px 5px rgb(112, 8, 8); */
+
 }
 
-.officers {
+footer {
+    background-color: red;
+    height: 5vh;
+    width: 100%;
+    position: absolute;
+    bottom:0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer > a {
+    color: yellow;
+}
+
+/* .officers {
     display: flex;
     justify-content: space-evenly;
     flex-direction: row;
     align-items: baseline;
     width: 100vw;
+    margin-top: 15%;
 }
 
 #officer2 > img {
     transform: rotate3d(1, 150, -4, 178deg);
-}
+} */

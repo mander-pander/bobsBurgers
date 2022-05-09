@@ -16,7 +16,7 @@ main {
     "footer footer";
     grid-template-columns: 45% 45%;
     column-gap: 10%;
-    background-color: white;
+    background-color: whitesmoke;
     margin-left: 10%;
     margin-right: 10%;
     margin-bottom: 10%;
@@ -43,8 +43,8 @@ li a {
     display: block;
     color: #3068B3;
     text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
+    padding: 10px 12px;
 }
 
 .charGetContainer {
@@ -64,14 +64,19 @@ li a {
     text-align: center;
     flex-flow: row wrap;
     justify-content: center;
-    padding: 10px;
-
+    margin: 10px;
 }
 
-#charButton {
-    cursor: pointer;
+#charButton, #searchBtn {
     background-color: #3068B3;
-    border: #FDF152 2px solid;
+    border: #3068B3 2px solid;
+    color: #F38400;
+}
+
+
+
+button {
+    cursor: pointer;
 }
 
 form {
@@ -87,29 +92,35 @@ form {
     grid-area: charResult;
     margin-right: 15%;
     margin-top: 10%;
-    /* background-color: #8FB3C7; */
     display: flex;
     justify-content: center;
     align-items: baseline;
 }
 
 .charCard {
-    display: grid;
     justify-items: center;
-    /* display: flex; */
-    /* border: 2px solid black; */
-    /* justify-content: center; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    max-width: 150px;
+    max-height: 150px;
+}
+
+.charCard > img {
+    max-width: 150px;
+    max-height: 150px;
 }
 
 #faveContainer {
     grid-area: faveChars;
-    border: 2px solid #FDF152;
+    border: 6px solid #FDF152;
+    border-style: groove;
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 5%;
+    margin-bottom: 5%;
     text-align: center;
     background-color: #ACEB5A;
-
 }
 
 #favoriteChar {
@@ -117,21 +128,43 @@ form {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-evenly;
-    /* justify-content: space-around; */
     align-items: center;
+    min-height: 40vh;
 
 }
 
 #favoriteChar > div {
-    border: 2px black solid;
+    /* border: 2px black solid; */
     max-width: 150px;
     max-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+    font-size: small;
+
 }
 
 #favoriteChar > div > img {
     display: block;
     max-width: 75px;
     max-height: 75px;
+    align-self: center;
+
+
+}
+
+#favoriteChar > div > button {
+    display: flex;
+    height: 5%;
+    width: 5%;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: Red;
+    background-color: yellow;
+    align-self:flex-end;
+
 }
 
 footer {

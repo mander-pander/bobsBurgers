@@ -1,9 +1,14 @@
 let getBurgerBtn = document.getElementById('burgerBtn');
 let userID = window.localStorage.getItem('userId');
+let session = window.localStorage.getItem('isLoggedIn');
 
 const displayFavorites = () => {
     let favoriteBurg = document.getElementById('favoriteBurg');
     favoriteBurg.innerHTML = '';
+
+    if (session !== 'true') {
+        window.location.href = '../Login/login.html'
+    }
 
     axios.get('http://localhost:5050/faveBurgers', {
         params: {
@@ -11,28 +16,30 @@ const displayFavorites = () => {
         }
     })
     .then((res) => {
-
-
         for(let i = 0; i < res.data.length; i++) {
 
             let burger = document.createElement('div');
             let burgerName = document.createElement('h4');
             let burgerPrice = document.createElement('p');
+            let deleteBtn = document.createElement('button')
 
-            favoriteBurg.appendChild(burger)
+
+            favoriteBurg.appendChild(burger);
 
             burger.appendChild(burgerName);
             burger.appendChild(burgerPrice);
-
-            console.log('res.data[i]', res.data[i])
+            burger.appendChild(deleteBtn);
 
             burgerName.innerHTML = res.data[i].name;
             burgerPrice.innerHTML = res.data[i].price;
+
+            deleteBtn.innerHTML = 'X';
+            deleteBtn.dataset.burgerId = res.data[i].burger_id;
+
+            deleteBtn.addEventListener('click', deleteFaveBurger);
         }
     })
 }
-
-
 
 const displayRandomBurger = () => {
 
@@ -94,6 +101,21 @@ const saveBurger = (e) => {
     .then(() => {
         displayFavorites();
     })
+}
+
+const deleteFaveBurger = (e) => {
+    debugger;
+    let params = {
+        data: {
+            burger_id: `${e.currentTarget.dataset.burgerId}`
+        }
+    };
+
+    axios.delete('http://localhost:5050/faveBurgers/', {params})
+    .then((res) => {
+        displayFavorites();
+    })
+    .catch(err => console.log(err));
 }
 
 displayFavorites();
