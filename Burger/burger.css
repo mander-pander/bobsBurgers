@@ -22,6 +22,7 @@ main {
 
 nav {
     margin-bottom: 5%;
+    font-family: 'Patrick Hand', cursive;
 }
 
 ul {
@@ -62,6 +63,7 @@ li a {
     background-color: orange;
     width: 15vw;
     height: 10vh;
+    font-family: 'Gloria Hallelujah', cursive;
 }
 
 #burgerCard {

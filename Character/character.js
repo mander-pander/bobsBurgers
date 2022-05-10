@@ -35,19 +35,18 @@ const displayFavorites = () => {
 
             charName.innerHTML = res.data[i].name;
             charImg.src = res.data[i].img;
-            charOcc.innerHTML = res.data[i].occupation;
+            // charOcc.innerHTML = res.data[i].occupation;
 
             deleteBtn.innerHTML = 'X';
             deleteBtn.dataset.charId = res.data[i].char_id;
             deleteBtn.addEventListener('click', deleteFaveChar);
 
 
-            //broken
-            // if(res.data[i].occupation === 'undefined') {
-            //     charOcc.innerHTML = '';
-            // } else {
-            //     charOcc.innerHTML = res.data[i].occupation;
-            // }
+            if(res.data[i].occupation === 'undefined') {
+                charOcc.innerHTML = '';
+            } else {
+                charOcc.innerHTML = res.data[i].occupation;
+            }
         }
     })
 }
@@ -91,16 +90,14 @@ const displayRandomCharacter = () => {
 
         charName.innerHTML = randomChar.name;
         charImg.src = randomChar.image;
-        charOcc.innerHTML = randomChar.occupation;
-
+        // charOcc.innerHTML = randomChar.occupation;
+        debugger;
         //broken
-        // if(res.data[i].occupation !== undefined) {
-        //     charOcc.innerHTML = res.data[i].occupation;
-        // } else {
-        //     charOcc.innerHTML = '';
-        // }
-        })
-        .catch(err => console.log(err));
+        if(randomChar.occupation) {
+            charOcc.innerHTML = randomChar.occupation;
+        }
+    })
+    .catch(err => console.log(err));
 }
 
 getCharacterBtn.addEventListener('click', displayRandomCharacter)
@@ -146,7 +143,10 @@ const searchForCharacter = (e) => {
 
         charName.innerHTML = searchedChar[0].name;
         charImg.src = searchedChar[0].image;
-        charOcc.innerHTML = searchedChar[0].occupation;
+
+        if(searchedChar[0].occupation) {
+            charOcc.innerHTML = searchedChar[0].occupation;
+        }
     })
     .catch(err => console.log(err));
 }

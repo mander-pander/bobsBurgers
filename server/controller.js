@@ -87,7 +87,7 @@ module.exports = {
         let {user_id} = req.query;
 
         sequelize.query(`
-            SELECT name, price, user_id
+            SELECT name, price, user_id, burger_id
             FROM favBurgers
             WHERE user_id = '${user_id}'
             LIMIT 5;

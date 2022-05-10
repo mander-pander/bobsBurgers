@@ -25,6 +25,7 @@ main {
 
 nav {
     margin-bottom: 5%;
+    font-family: 'Patrick Hand', cursive;
 }
 
 ul {
@@ -50,13 +51,15 @@ li a {
 .charGetContainer {
     grid-area: charGenerator;
     display: flex;
-    flex-flow: column;
+    flex-flow: column nowrap;
     margin-left: 15%;
     margin-top: 10%;
-    border: 2px solid black;
+    border: 4px solid #8FB3C7;
+    border-style: groove;
     background-color: #F38400;
     height: 40vh;
     width: 35vw;
+    font-family: 'Patrick Hand', cursive;
 }
 
 #getCharacter{
@@ -77,6 +80,7 @@ li a {
 
 button {
     cursor: pointer;
+    font-family: 'Patrick Hand', cursive;
 }
 
 form {
@@ -108,19 +112,20 @@ form {
 
 .charCard > img {
     max-width: 150px;
-    max-height: 150px;
+    max-height: 125px;
 }
 
 #faveContainer {
     grid-area: faveChars;
-    border: 6px solid #FDF152;
+    border: 6px solid #E4A754;
     border-style: groove;
     margin-left: 10%;
     margin-right: 10%;
     margin-top: 5%;
     margin-bottom: 5%;
     text-align: center;
-    background-color: #ACEB5A;
+    background-color: #8FB3C7;
+    font-family: 'Patrick Hand', cursive;
 }
 
 #favoriteChar {
@@ -134,37 +139,56 @@ form {
 }
 
 #favoriteChar > div {
-    /* border: 2px black solid; */
-    max-width: 150px;
-    max-height: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 20px;
+    border: solid black;
+    border-width: 4px 2px 2px 4px;
+    border-radius:95% 4% 97% 5%/4% 94% 3% 95%;
+    width: 150px;
+    min-height: 150px;
+    padding-top: 5px;
     font-size: small;
-
+    display: grid;
+    grid-template-areas:
+    "name delete"
+    "img img"
+    "occ occ";
+    margin-bottom: 15%;
+    grid-template-columns: 85% 15%;
 }
 
 #favoriteChar > div > img {
     display: block;
     max-width: 75px;
     max-height: 75px;
-    align-self: center;
+    margin-left: auto;
+    margin-right: auto;
+    grid-area: img;
 
+}
 
+#favoriteChar > div > h4 {
+    grid-area: name;
+    margin-left: 20px;
+}
+
+#favoriteChar > div > p {
+    grid-area: occ;
+    text-align: center;
 }
 
 #favoriteChar > div > button {
     display: flex;
-    height: 5%;
-    width: 5%;
+    height: 20px;
+    width: 20px;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
-    color: Red;
-    background-color: yellow;
+    color: #FDF152;
+    background-color: #8FB3C7;
     align-self:flex-end;
-
+    grid-area: delete;
+    align-self: start;
+    border: solid black;
+    border-width: 3px 1px 1px 3px;
+    border-radius:95% 4% 97% 5%/4% 94% 3% 95%;
 }
 
 footer {
