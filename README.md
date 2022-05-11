@@ -1,4 +1,4 @@
-## Bob's Burgers Generator
+## Bob's Burgers Generator - Foundations Capstone
 
 This fullstack web application allows you to explore the world of Bob's Burgers wacky characters and unique
 burgers with the integration of the Bob's Burgers API. The application allows users to create an account so
