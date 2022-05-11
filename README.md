@@ -9,4 +9,4 @@ you are able to delete those you may no longer want.
 #### Technologies
 HTML/CSS, Javascript, PostgreSQL
 
-![login page](./loginPage.png "Login Page")
+

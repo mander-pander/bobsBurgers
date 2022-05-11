@@ -39,6 +39,7 @@ const displayFavorites = () => {
             deleteBtn.addEventListener('click', deleteFaveBurger);
         }
     })
+    .catch(err => console.log(err))
 }
 
 const displayRandomBurger = () => {
@@ -47,9 +48,6 @@ const displayRandomBurger = () => {
     burgerCard.innerHTML = '';
 
     let session = window.localStorage.getItem('isLoggedIn');
-    // console.log(typeof session)
-    // debugger;
-
     if (session !== 'true') {
         window.location.href = '../Login/login.html'
     }
@@ -70,7 +68,6 @@ const displayRandomBurger = () => {
 
             burgerCard.appendChild(burger);
             burger.classList.add('burger');
-            console.log(randomBurger)
 
             burger.appendChild(burgerName);
             burger.appendChild(burgerPrice);
@@ -104,7 +101,6 @@ const saveBurger = (e) => {
 }
 
 const deleteFaveBurger = (e) => {
-    debugger;
     let params = {
         data: {
             burger_id: `${e.currentTarget.dataset.burgerId}`

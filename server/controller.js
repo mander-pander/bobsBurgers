@@ -21,7 +21,7 @@ module.exports = {
             VALUES ('${username}', '${password}');
         `)
         .then((dbRes) => {
-            res.send(dbRes);
+            res.send(dbRes[0]);
         }).catch(err => console.log(err));
     },
 
@@ -95,6 +95,7 @@ module.exports = {
         .then((dbRes) => {
             res.send(dbRes[0]);
         })
+        .catch(err => console.log(err))
     },
     deleteFaveChar: (req, res) => {
 

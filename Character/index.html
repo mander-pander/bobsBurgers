@@ -13,6 +13,7 @@
 <body>
     <nav>
         <ul>
+            <li><a href="../Home/home.html">Home</a></li>
             <li><a href="../Character/index.html">Characters</a></li>
             <li><a href="../Burger/burger.html">Burgers</a></li>
             <li style="float:right"><a id="logout" href="../Login/login.html">Logout</a></li>
@@ -31,8 +32,10 @@
 
             <form id="searchForm" action="submit">
                 <h2>Search for a character</h2>
-                <input type="text" placeholder="Character Name" id="characterName">
-                <button id="searchBtn">Search</button>
+                <div class="searchInput">
+                    <input type="text" placeholder="Character Name" id="characterName">
+                    <button id="searchBtn">Search</button>
+                </div>
             </form>
         </div>
 
@@ -46,13 +49,7 @@
             <section id="favoriteChar">
             </section>
         </div>
-
-    <footer>
-        <!-- <img src='https://www.filmindependent.org/wp-content/uploads/2020/01/BobsBurgers_FeaturedImage.jpg' alt=""> -->
-    </footer>
-
     </main>
-
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="character.js"></script>

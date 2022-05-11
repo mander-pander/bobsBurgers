@@ -12,37 +12,27 @@
 </head>
 <body>
     <main>
-    <header>
-        <h1>LOGIN FOR ACCESS</h1>
-    </header>
-    <!-- <link rel="import" href="../Navbar/navbar.html"> -->
-    <div class="userEntry">
-        <form action="submit" id="loginUser">
-            <input type="text" placeholder="Username" id = "username">
-            <input type="password" placeholder="Password" id="password">
+        <header>
+            <h1>LOGIN FOR ACCESS</h1>
+        </header>
 
-            <button>Login</button>
-        </form>
+        <div class="userEntry">
+            <span>Incorrect username or password.</span>
+            <form action="submit" id="loginUser">
+                <input type="text" placeholder="Username" id = "username">
+                <input type="password" placeholder="Password" id="password">
 
-        <a href="../Users/users.html">Don't have an account? Create one here.</a>
-
-    </div>
-
-    <!-- <div class="officers">
-        <div id="officer1">
-            <img src="../officerCliffany.webp" alt="">
+                <button>Login</button>
+            </form>
+            <a href="../Users/users.html">Don't have an account? Create one here.</a>
         </div>
-        <div id="officer2">
-            <img src="../officerJulia.webp" alt="">
-        </div>
-    </div> -->
 
+    </main>
 
-</main>
+    <footer>
+        Info courtsey of: <a href="https://www.bobsburgersapi.com/documentation">https://www.bobsburgersapi.com/documentation</a>
+    </footer>
 
-<footer>
-    Info courtsey of: <a href="https://www.bobsburgersapi.com/documentation">https://www.bobsburgersapi.com/documentation</a>
-</footer>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="login.js"></script>
 </body>
