@@ -9,6 +9,4 @@ you are able to delete those you may no longer want.
 #### Technologies
 HTML/CSS, Javascript, PostgreSQL
 
-![login page](https://github.com/mander-pander/bobsBurgers/blob/main/loginPage.png "Login Page")
-
-
+![login page](./client/loginPage.png "Login Page")
