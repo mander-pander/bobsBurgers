@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 
 require('dotenv').config()
-const {SERVER_PORT} = process.env;
+const { PORT } = process.env;
 
 const app = express();
 
@@ -34,4 +34,4 @@ app.get('/faveBurgers', displayFaveBurger);
 app.delete('/faveCharacters', deleteFaveChar);
 app.delete('/faveBurgers', deleteFaveBurger);
 
-app.listen(SERVER_PORT, () => console.log(`Up on ${SERVER_PORT}`));
+app.listen(PORT, () => console.log(`Up on ${PORT}`));
