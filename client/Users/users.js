@@ -10,7 +10,7 @@ function createUser(e) {
         password: passwordInput.value
     }
 
-    axios.post('http://localhost:5050/user', body)
+    axios.post('https://burgers-ag-capstone.herokuapp.com/user', body)
         .then(() => {
             window.location.href = '../Login/login.html'
         })
