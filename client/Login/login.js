@@ -28,4 +28,29 @@ function loginUser(e) {
         .catch(err => console.log(err));
 }
 
+function loginDemoUser(e) {
+    e.preventDefault();
+    let body = {
+        username: `person`,
+        password: `password`
+    };
+
+    axios.post('https://burgers-ag-capstone.herokuapp.com/login', body)
+    .then((res) => {
+        if (res.data[0] === undefined) {
+            message.classList.toggle('spanVisible');
+            return;
+        }
+
+        const { username, password, user_id } = res.data[0];
+
+        if (usernameInput.value === username && passwordInput.value === password) {
+            window.localStorage.setItem('userId', user_id);
+            window.localStorage.setItem('isLoggedIn', true);
+            window.location.href = '../Home/home.html'
+        }
+    })
+    .catch(err => console.log(err));
+}
+
 form.addEventListener('submit', loginUser);
